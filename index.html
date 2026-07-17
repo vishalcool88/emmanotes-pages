@@ -6,85 +6,9 @@
 <title>EmmaNotes — Speak a note about anyone you meet</title>
 <meta name="description" content="EmmaNotes transcribes and organizes voice notes about people you meet, entirely on your iPhone.">
 <link rel="icon" href="assets/icon.png">
+<link rel="stylesheet" href="site.css">
 <style>
-  :root {
-    --ink: #150E28;
-    --ink-raised: #1E1438;
-    --ink-line: #362A5C;
-    --paper: #FAF8FF;
-    --paper-raised: #F1ECFF;
-    --paper-line: #DCD2F5;
-    --violet-deep: #512ED8;
-    --violet-bright: #8B2FE0;
-    --violet-glow: #B79CFF;
-    --text-on-paper: #1D1233;
-    --text-on-paper-dim: #5B5074;
-    --text-on-ink: #F4F1FF;
-    --text-on-ink-dim: #B7ACD6;
-    --shadow-color: 262deg 60% 20%;
-  }
-  :root[data-theme="dark"] { color-scheme: dark; }
-  :root[data-theme="light"] { color-scheme: light; }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) { color-scheme: dark; }
-  }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--paper);
-    color: var(--text-on-paper);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.55;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-  .display {
-    font-family: ui-rounded, -apple-system, BlinkMacSystemFont, "SF Pro Rounded", "Helvetica Neue", sans-serif;
-    font-weight: 800;
-    letter-spacing: -0.01em;
-    text-wrap: balance;
-  }
-  .mono {
-    font-family: ui-monospace, "SF Mono", "Cascadia Code", Menlo, monospace;
-  }
-  a { color: inherit; }
-  img { max-width: 100%; display: block; }
-  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 28px; }
-  section { position: relative; }
-
-  /* ---------- waveform divider ---------- */
-  .wave-divider { display: flex; align-items: center; justify-content: center; gap: 5px; height: 34px; }
-  .wave-divider span {
-    width: 3px; border-radius: 3px;
-    background: var(--divider-color, var(--paper-line));
-    animation: wave-pulse 2.6s ease-in-out infinite;
-  }
-  @media (prefers-reduced-motion: reduce) { .wave-divider span { animation: none; } }
-  .wave-divider span:nth-child(1) { height: 8px;  animation-delay: -1.9s; }
-  .wave-divider span:nth-child(2) { height: 16px; animation-delay: -1.5s; }
-  .wave-divider span:nth-child(3) { height: 24px; animation-delay: -1.1s; }
-  .wave-divider span:nth-child(4) { height: 14px; animation-delay: -0.7s; }
-  .wave-divider span:nth-child(5) { height: 20px; animation-delay: -0.3s; }
-  .wave-divider span:nth-child(6) { height: 10px; animation-delay: 0s; }
-  @keyframes wave-pulse { 0%,100% { transform: scaleY(0.55); opacity: .55; } 50% { transform: scaleY(1); opacity: 1; } }
-  .band-ink .wave-divider { --divider-color: var(--ink-line); }
-
-  /* ---------- nav ---------- */
-  nav.top {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 22px 28px; max-width: 1120px; margin: 0 auto;
-  }
-  .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.05rem; }
-  .brand img { width: 30px; height: 30px; border-radius: 8px; }
-  nav.top .links { display: flex; gap: 26px; font-size: 0.92rem; color: var(--text-on-paper-dim); }
-  nav.top .links a:hover { color: var(--violet-deep); }
-
   /* ---------- hero (ink band) ---------- */
-  .band-ink {
-    background: linear-gradient(175deg, var(--ink) 0%, #180F30 60%, var(--ink) 100%);
-    color: var(--text-on-ink);
-  }
   .hero { padding: 86px 0 70px; text-align: center; }
   .eyebrow {
     display: inline-block; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
@@ -195,14 +119,6 @@
     align-self: flex-start; font-size: 0.72rem; font-family: ui-monospace, "SF Mono", Menlo, monospace;
     background: var(--violet-deep); color: white; padding: 3px 10px; border-radius: 6px;
   }
-
-  /* ---------- footer (ink) ---------- */
-  footer.band-ink { padding: 46px 0 40px; }
-  .foot-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 18px; }
-  .foot-links { display: flex; gap: 22px; font-size: 0.88rem; color: var(--text-on-ink-dim); }
-  .foot-links a:hover { color: var(--text-on-ink); }
-  .foot-copy { font-size: 0.82rem; color: var(--text-on-ink-dim); opacity: 0.75; }
-  :focus-visible { outline: 2px solid var(--violet-glow); outline-offset: 3px; }
 </style>
 </head>
 <body>
